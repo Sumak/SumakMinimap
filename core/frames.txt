@@ -1,0 +1,15 @@
+
+---- создание фреймов
+Функция создания фреймов: frames
+
+-- входящие параметры:
+ f_name - имя фрейма
+parent - родитель
+level - уровень фрейма
+strata - уровень слоя (background, low, medium, hight, dialog, fullscreen, tooltip)
+nobg - без подложки (false, true)
+noshadow - без тени
+offset - оффсет
+alpha - альфа (полупрозрачность)
+
+
