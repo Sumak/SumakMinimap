@@ -5,6 +5,9 @@ local FCV, CFG = unpack(select(2, ...))
 
 local minimap_size = 144
 local font_size = 13
+local anchor_point = 'TOPRIGHT' 
+local x = -25
+local y = -40
 
 FCV.backdrop = {
 	bgFile = CFG.media.bgfile,
@@ -22,7 +25,8 @@ FCV.backdrop = {
 }
 ---- Config end
 -------------------------------------------------
-
+Minimap : ClearAllPoints()
+Minimap : SetPoint (anchor_point, UIParent, x, y)
 GameTimeFrame : Hide()
 
 -------------------------------------------------
@@ -139,7 +143,7 @@ local m_tracking = FCV.frame ("m_tracking", minimapframe, 1, "LOW", true, true, 
 local minimap_ID = FCV.frame ("minimap_ID", minimapframe, 5, "LOW", true, true, true)
 minimap_ID : SetSize (40, 40)
 minimap_ID : ClearAllPoints ()
-minimap_ID : SetPoint ("BOTTOMRIGHT", minimapframe, "BOTTOMLEFT", -4, 0)
+minimap_ID : SetPoint ("BOTTOMRIGHT", minimapframe, "TOPLEFT", -4, -40)
 MiniMapInstanceDifficulty : ClearAllPoints ()
 MiniMapInstanceDifficulty : SetParent(minimap_ID)
 MiniMapInstanceDifficulty : SetPoint("CENTER", minimap_ID, "CENTER", 0, -5)
@@ -256,6 +260,7 @@ Kill(GameTimeFrame)
  --/framestack - команда отображения фреймов!!!!
  
 SLASH_RESETMINIMAP1 = "/rmmp"
+SLASH_RESETMINIMAP1 = "/resetmmp"
 
 m_zone:RegisterEvent("PLAYER_ENTERING_WORLD")
 m_zone:RegisterEvent("ZONE_CHANGED_NEW_AREA")
