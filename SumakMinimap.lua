@@ -239,29 +239,6 @@ local clockFrame, clockTime = TimeManagerClockButton:GetRegions()
 -- Time	
 ------------------------------------------
 
-------------------------------------------
--- Kill ugly things.
-Kill(WatchFrame)		--список задач
---Kill(GameTimeFrame)
-Kill(MinimapBorderTop) -- hide minimap border
-Kill(MinimapBorder)	   -- hide minimap border
-Kill(MinimapNorthTag)
-Kill(MinimapZoneTextButton)
-Kill(MinimapZoomOut)	-- hide zoom button
-Kill(MinimapZoomIn)	-- hide zoom button
-Kill(MiniMapVoiceChatFrame)	-- Hide Voice Chat Frame
-Kill(MiniMapWorldMapButton)
-Kill(MiniMapMailBorder)	-- hide mail border
-Kill(MiniMapBattlefieldBorder)
-Kill(MiniMapTrackingBackground) -- бекграунд на трекере
-Kill(MiniMapTrackingButtonBorder) -- бордер на трекере
---GameTimeFrame:Hide()
-Kill(GameTimeFrame)
---FCV.kill (TimeManagerClockButton)
----- хайд минимап трек икон
---MiniMapTracking:Hide()
-
- --/framestack - команда отображения фреймов!!!!
  
 ------------------------------------------	
 -- Right click menu
@@ -315,6 +292,31 @@ Minimap : SetScript("OnMouseUp", function(self, button)
 		Minimap_OnClick(self)
 	end
 end)
+ 
+ ------------------------------------------
+-- Kill ugly things.
+Kill(WatchFrame)		--список задач
+--Kill(GameTimeFrame)
+Kill(MinimapBorderTop) -- hide minimap border
+Kill(MinimapBorder)	   -- hide minimap border
+Kill(MinimapNorthTag)
+Kill(MinimapZoneTextButton)
+Kill(MinimapZoomOut)	-- hide zoom button
+Kill(MinimapZoomIn)	-- hide zoom button
+Kill(MiniMapVoiceChatFrame)	-- Hide Voice Chat Frame
+Kill(MiniMapWorldMapButton)
+Kill(MiniMapMailBorder)	-- hide mail border
+Kill(MiniMapBattlefieldBorder)
+Kill(MiniMapTrackingBackground) -- бекграунд на трекере
+Kill(MiniMapTrackingButtonBorder) -- бордер на трекере
+--GameTimeFrame:Hide()
+Kill(GameTimeFrame)
+--FCV.kill (TimeManagerClockButton)
+---- хайд минимап трек икон
+--MiniMapTracking:Hide()
+
+ --/framestack - команда отображения фреймов!!!!
+
  
 SLASH_RESETMINIMAP1 = "/rmmp"
 SLASH_RESETMINIMAP1 = "/resetmmp"
