@@ -29,6 +29,8 @@ FCV.backdrop = {
 }
 ---- Config end
 -------------------------------------------------
+local function echo(str) print('|cfffef00fSumakMinimap |cff82e2eb' .. (str or '')) end
+
 Minimap : ClearAllPoints()
 Minimap : SetPoint (anchor_point, UIParent, x, y)
 GameTimeFrame : Hide()
@@ -39,6 +41,10 @@ local minimapframe = FCV.frame ("minimapframe", Minimap, 1, "BACKGROUND", false,
 	minimapframe : SetPoint ("TOPLEFT", -4, 4)
 	minimapframe : SetPoint ("BOTTOMRIGHT", 4, -4)
 
+	----
+minimapframe : SetScript ('OnEvent', function (self, event)
+	echo ('Версия '.. GetAddOnMetadata ('SumakMinimap', 'Version') .. ' by Sumak ')
+end)
 -------------------------------------------------
 ---- The frame for zone
 local m_zone = FCV.frame ("m_zone", minimapframe, 1, "BACKGROUND", false, false, false)
@@ -325,3 +331,5 @@ m_zone:RegisterEvent("PLAYER_ENTERING_WORLD")
 m_zone:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 m_zone:RegisterEvent("ZONE_CHANGED")
 m_zone:RegisterEvent("ZONE_CHANGED_INDOORS")
+
+minimapframe : RegisterEvent('ADDON_LOADED')
