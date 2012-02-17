@@ -31,11 +31,6 @@ FCV.backdrop = {
 -------------------------------------------------
 local function echo(str) print('|cfffef00fSumakMinimap |cff82e2eb' .. (str or '')) end
 
-----
-Minimap : SetScript ('OnEvent', function (self, event)
-	echo ('Версия '.. GetAddOnMetadata ('SumakMinimap', 'Version') .. ' by Sumak ')
-end)
-
 Minimap : ClearAllPoints()
 Minimap : SetPoint (anchor_point, UIParent, x, y)
 GameTimeFrame : Hide()
@@ -230,7 +225,6 @@ if not IsAddOnLoaded("Blizzard_TimeManager") then
 	LoadAddOn("Blizzard_TimeManager")
 end
 
-
 local clockFrame, clockTime = TimeManagerClockButton:GetRegions()
 	clockFrame : Hide () ;	-- kill clock frame
 	clockTime : SetFont (CFG.media.uffont, font_size)
@@ -300,6 +294,11 @@ Minimap : SetScript("OnMouseUp", function(self, button)
 	end
 end)
  
+ 
+ if IsAddOnLoaded("SumakMinimap") then
+	echo ('Версия '.. GetAddOnMetadata ('SumakUI', 'Version') .. ' by Sumak ')
+end
+ 
  ------------------------------------------
 -- Kill ugly things.
 Kill(WatchFrame)		--список задач
@@ -332,5 +331,3 @@ m_zone:RegisterEvent("PLAYER_ENTERING_WORLD")
 m_zone:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 m_zone:RegisterEvent("ZONE_CHANGED")
 m_zone:RegisterEvent("ZONE_CHANGED_INDOORS")
-
-minimapframe : RegisterEvent('PLAYER_ENTERING_WORLD')
