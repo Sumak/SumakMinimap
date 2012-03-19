@@ -273,19 +273,6 @@ local menuList = {
     end},
 }
 
-local addonmenu = {
-	{text = "AtlasLoot",
-    func = function() if IsAddOnLoaded("AtlasLoot") then AtlasLootDefaultFrame:Show() end end},
-	{text = "Skada",
-    func = function() if IsAddOnLoaded("Skada") then Skada:ToggleWindow() end end},
-	{text = "WIM",
-    func = function() if IsAddOnLoaded("WIM") then WIM.ShowAllWindows() end end},
-	{text = "Omen",
-    func = function() if IsAddOnLoaded("Omen") then Omen:Toggle() end end},
-	{text = "Recount",
-    func = function() if IsAddOnLoaded("Recount") then Recount.MainWindow:Show() end end},
-}
-
 Minimap : SetScript("OnMouseUp", function(self, button)
 	if button == "RightButton" and not InCombatLockdown() then
 		EasyMenu(menuList, menuFrame, "cursor", 0, 0, "MENU", 2)
@@ -293,37 +280,29 @@ Minimap : SetScript("OnMouseUp", function(self, button)
 		Minimap_OnClick(self)
 	end
 end)
- 
- 
+  
  if IsAddOnLoaded("SumakMinimap") then
-	echo ('Версия '.. GetAddOnMetadata ('SumakUI', 'Version') .. ' by Sumak ')
+	echo ('Версия '.. GetAddOnMetadata ('SumakMinimap', 'Version') .. ' by Sumak ')
 end
  
  ------------------------------------------
--- Kill ugly things.
-Kill(WatchFrame)		--список задач
---Kill(GameTimeFrame)
-Kill(MinimapBorderTop) -- hide minimap border
-Kill(MinimapBorder)	   -- hide minimap border
-Kill(MinimapNorthTag)
-Kill(MinimapZoneTextButton)
-Kill(MinimapZoomOut)	-- hide zoom button
-Kill(MinimapZoomIn)	-- hide zoom button
-Kill(MiniMapVoiceChatFrame)	-- Hide Voice Chat Frame
-Kill(MiniMapWorldMapButton)
-Kill(MiniMapMailBorder)	-- hide mail border
-Kill(MiniMapBattlefieldBorder)
-Kill(MiniMapTrackingBackground) -- бекграунд на трекере
-Kill(MiniMapTrackingButtonBorder) -- бордер на трекере
---GameTimeFrame:Hide()
-Kill(GameTimeFrame)
---FCV.kill (TimeManagerClockButton)
----- хайд минимап трек икон
---MiniMapTracking:Hide()
+-- Скрываем минимапбордеры
 
- --/framestack - команда отображения фреймов!!!!
+FCV.kill(WatchFrame)		--список задач
+FCV.kill(MinimapBorderTop) -- hide minimap border
+FCV.kill(MinimapBorder)	   -- hide minimap border
+FCV.kill(MinimapNorthTag)
+FCV.kill(MinimapZoneTextButton)
+FCV.kill(MinimapZoomOut)	-- hide zoom button
+FCV.kill(MinimapZoomIn)	-- hide zoom button
+FCV.kill(MiniMapVoiceChatFrame)	-- Hide Voice Chat Frame
+FCV.kill(MiniMapWorldMapButton)
+FCV.kill(MiniMapMailBorder)	-- hide mail border
+FCV.kill(MiniMapBattlefieldBorder)
+FCV.kill(MiniMapTrackingBackground) -- бекграунд на трекере
+FCV.kill(MiniMapTrackingButtonBorder) -- бордер на трекере
+FCV.kill(GameTimeFrame)
 
- 
 SLASH_RESETMINIMAP1 = "/rmmp"
 SLASH_RESETMINIMAP1 = "/resetmmp"
 
